@@ -1,0 +1,71 @@
+#Jacob Davis | Jannary 20th 2024 | The Game
+#This code will run the text based game
+
+from place import Place #Brings in the place class
+"""from action import Action #Brings in the action class"""
+
+Start = True #Finds out if the player is in the starting location
+Engine = False #Finds out if the player is in the engine location
+Medical = False #Finds out if the player is in the medical location
+Cafe = False #Finds out if the player is in the cafiteria location
+Nav = False #Finds out if the player is in the navigation location
+Elec = False #Finds out if the player is in the electiral location
+Crew = False #Finds out if the player is in the crew location
+
+def terms():
+    """This function prints the terms for the game"""
+    print("look around")
+    print("smell")
+    print("search")
+    print("yes")
+    print("no")
+    print("north")
+    print("east")
+    print("south")
+    print("west")
+        
+#Gives context for the player
+print("You awaken from your deep state of slumber. You hear the constant raddle of the engine roaring. Your hunger burns inside. Its time to eat")
+print("Type 'terms' to get the correct inputs for the game")
+run = True #Runs the give continuously
+while run:
+
+    if Start == True: #If the player is in the start room
+        user = input("What did you want to do: ") #The game asks the player what they would like to do
+        if user == "look around": #if the user wants to look around
+            user = input("you find ___ and find a piece of paper in the couner. What do you want to do :")
+            if user == "search": #if the user wants to search
+                user = input("you found a map. Do you want to look at it?")
+                if user == "yes": #if the user says yes
+                    print(map) #the player will see the map
+                if user == "no": #if the user says no
+                    print("You crawl away from some usless pice of paper") #the player will not see the map     
+        elif user == "smell": #if the user wants to smell
+            print ("You semll a food from the east")
+        elif user == "listen": #if the user wants to listen
+            print ("You hear a loud blaring alarm to the south of you")
+        elif user == "east": #If the player goes east
+            Cafe = True #The player enters the cafateria
+            Start = False #The player leaves the start
+        elif user == "south": #If the player goes south 
+            Engine = True #The player enters the Engine
+            Start = False #The player leaves the start
+        elif user == "terms": #If the player wants the search terms
+            terms() #The terms will print
+        else:
+            print ("That doesn't seem to be a proper input. See the action list for more details")
+            
+    if Cafe == True: #If the player is in the start cafaiteria
+        print ("You prowl into the room to the east of you. It smell like a sweet aroma isoming from that room. You walk in to see a table in the middle of the room and a bunch of dirty plates still on the table") 
+        user = input("What did you want to do: ")
+        if user == "look around":
+            user = input("You investigate the area. It looks like everyone is gone. Thier is still a plate of food though. Do you want some: ")
+            if user == "yes":
+                print(map)
+            if user == "no":
+                    print("")          
+        elif user == "smell":
+            print ("")
+        elif user == "east":
+            Cafe = False
+            Medical = True
